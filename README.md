@@ -3,9 +3,9 @@
 <div>credits to <a href="https://github.com/Bentlybro">Bentlybro</a> for the code to start this project</div>
 <div>follow the ollama setup guide to use this tool</div>
 # * setup *
-open two of your wsl-linux environment
+<div>open two of your wsl-linux environment</div>
 <div>terminal1 > "ollama serve"</div>
-terminal2 > "ollama run llama2-uncensored"
+<div>terminal2 > "ollama run llama2-uncensored"</div>
 
 ![ubuntu_Ko1o0kzOLu](https://github.com/ConTronTech/assistant-browser/assets/120324560/ce4cfbdf-a151-4cd7-8c49-253e97de5fae)
 
