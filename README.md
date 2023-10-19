@@ -7,6 +7,7 @@ open two of your wsl-linux environment
 run "ollama serve"
 then your latest model 
 ![ubuntu_Ko1o0kzOLu](https://github.com/ConTronTech/assistant-browser/assets/120324560/ce4cfbdf-a151-4cd7-8c49-253e97de5fae)
+
 open a cmd and "pip install Flask"
 python testapi.py in the location of the py file
 
