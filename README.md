@@ -2,10 +2,12 @@
 a python and html page to talk to your assistant
 using the [ollama ai](https://github.com/jmorganca/ollama/tree/main/docs)
 follow the ollama setup guide to use this tool
+
 # * setup *
 open two of your wsl-linux environment
 run "ollama serve"
-then your latest model 
+then your latest model
+
 ![ubuntu_Ko1o0kzOLu](https://github.com/ConTronTech/assistant-browser/assets/120324560/ce4cfbdf-a151-4cd7-8c49-253e97de5fae)
 
 open a cmd and "pip install Flask"
