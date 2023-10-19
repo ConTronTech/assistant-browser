@@ -1,6 +1,6 @@
 # assistant-browser v-1.0
 <div>a python and html page to talk to your assistant using the <a href="https://github.com/jmorganca/ollama/tree/main/docs">ollama ai</a></div>
-<div>credits to @Bentlybro for the code to start this project</div>
+<div>credits to <a href="https://github.com/Bentlybro">Bentlybro</a></div> for the code to start this project</div>
 <div>follow the ollama setup guide to use this tool</div>
 
 # * setup *
