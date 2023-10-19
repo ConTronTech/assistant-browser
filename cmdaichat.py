@@ -9,7 +9,7 @@ def send_request(prompt):
     url = "http://localhost:11434/api/generate"
     headers = {"Content-Type": "application/json"}
     data = {
-        "model": "Jeffery",
+        "model": "llama2-uncensored",
         "prompt": prompt
     }
     response = requests.post(url, headers=headers, json=data)
