@@ -1,9 +1,8 @@
 # assistant-browser v-1.0
 a python and html page to talk to your assistant
-<div>using the [ollama ai] (https://github.com/jmorganca/ollama/tree/main/docs)</div>
-<div>credits to [Bentlybro] (https://github.com/Bentlybro)</div>
+<div>using the <a href="https://github.com/jmorganca/ollama/tree/main/docs">ollama ai</a></div>
+<div>credits to <a href="https://github.com/Bentlybro">Bentlybro</a></div>
 follow the ollama setup guide to use this tool
-
 # * setup *
 open two of your wsl-linux environment
 <div>terminal1 > "ollama serve"</div>
