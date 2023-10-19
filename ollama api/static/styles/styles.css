@@ -1,0 +1,28 @@
+/* Custom styles for the chat container */
+.chat-container {
+    max-height: 300px; /* Default height, can be adjusted */
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #FF69B4, #000000); /* Gradient from pink (#FF69B4) to black (#000000) */
+}
+
+/* Custom styles for the chat bubbles */
+.chat-bubble {
+    max-width: 80%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    clear: both; /* Added to ensure the next bubble starts on a new line */
+}
+
+.user-bubble {
+    background-color: #007bff;
+    color: #F4C2C2;
+    float: right;
+}
+
+.response-bubble {
+    background-color: #28a745;
+    color: #CA9BF7;
+    float: left;
+}
+

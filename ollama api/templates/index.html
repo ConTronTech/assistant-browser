@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat with Jeffery</title>
+<link href="/static/ico/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+			 /* Custom styles for the chat container */
+		.chat-container {
+			max-height: 300px; /* Default height, can be adjusted */
+			overflow-y: auto;
+		}
+
+		/* Custom styles for the chat bubbles */
+		.chat-bubble {
+			max-width: 80%;
+			margin-bottom: 10px;
+			padding: 10px;
+			border-radius: 10px;
+			clear: both; /* Added to ensure the next bubble starts on a new line */
+		}
+
+		.text-white {
+			color: ffffff;
+		}
+		
+		.user-bubble {
+			background-color: #F4C2C2;
+			color: black;
+			float: right;
+		}
+
+		.response-bubble {
+			background-color: #CA9BF7;
+			color: black;
+			float: left;
+		}
+
+	 
+body { background-color: #000000; }
+</style>
+</head>
+<body class="container">
+<div class="text-white container-body">
+<h1 class="mt-4">Chat with Jeffery</h1>
+<div class="chat-container" id="chatContainer"></div>
+<form class="fixed-bottom mb-4" id="chatForm">
+<div class="form-group">
+<label for="userInput">Enter your question:</label>
+<input class="form-control" id="userInput" name="user_input" required="" type="text"/>
+<button class="btn btn-success" type="submit">Submit</button>
+</div>
+</form></div>
+</body></html>
+<!-- Add Bootstrap JS and Popper.js scripts -->
+<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-PXVJLGraMTKz93fQe/LYOMHaEDFRR7oBZ0LVwqFd+3FxF6VeQJKTX6ElIpZ6r54S" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-PXVJLGraMTKz93fQe/LYOMHaEDFRR7oBZ0LVwqFd+3FxF6VeQJKTX6ElIpZ6r54S" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyFz3DEaP1aaW8evJELbPQ5L2r5qNDzQ1x" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+	        // Calculate available height for chat container and scroll to the bottom
+        function setChatContainerHeight() {
+            var chatContainer = document.getElementById('chatContainer');
+            var titleHeight = document.querySelector('h1').offsetHeight;
+            var inputLabelHeight = document.querySelector('label[for="userInput"]').offsetHeight;
+            var formHeight = document.querySelector('#chatForm').offsetHeight;
+            var availableHeight = window.innerHeight - titleHeight - inputLabelHeight - formHeight;
+            chatContainer.style.maxHeight = availableHeight + 'px';
+            chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to the bottom
+        }
+        setChatContainerHeight(); // Call the function initially and on window resize
+        window.addEventListener('resize', setChatContainerHeight);
+        document.getElementById('chatForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var userInput = document.getElementById('userInput').value;
+            var userBubble = createChatBubble(userInput, 'user-bubble'); // Create user input bubble
+            document.getElementById('chatContainer').appendChild(userBubble);
+            fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'user_input=' + encodeURIComponent(userInput),
+            })
+            .then(response => response.json())
+            .then(data => {
+                var responseBubble = createChatBubble(data.response, 'response-bubble'); // Create response bubble
+                document.getElementById('chatContainer').appendChild(responseBubble);
+                document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight; // Scroll to the bottom after adding a new message
+            })
+            .catch(error => console.error('Error:', error));
+            document.getElementById('userInput').value = ''; // Clear the input field after submitting
+        });
+
+        function createChatBubble(message, bubbleClass) {
+            var bubble = document.createElement('div');
+            bubble.className = 'chat-bubble ' + bubbleClass;
+            bubble.innerText = message;
+            return bubble;
+        }
+	</script>
+</body>
+</html>
