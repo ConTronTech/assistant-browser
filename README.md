@@ -5,7 +5,7 @@ follow the ollama setup guide to use this tool
 
 # * setup *
 open two of your wsl-linux environment
-terminal1 > "ollama serve"
+<div>terminal1 > "ollama serve"</div>
 terminal2 > "ollama run llama2-uncensored"
 
 ![ubuntu_Ko1o0kzOLu](https://github.com/ConTronTech/assistant-browser/assets/120324560/ce4cfbdf-a151-4cd7-8c49-253e97de5fae)
